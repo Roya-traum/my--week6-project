@@ -2,3 +2,38 @@ h1 {
   text-align: center;
   color: green;
 }
+.app-wrapper {
+  max-width: 700px;
+  margin: 10px auto;
+}
+.app-search {
+  border: 1px solid #bcbcbc;
+  padding: 15px;
+  border-radius: 50px 0px 18px 0px;
+  background: #fcfffb;
+}
+.app-info {
+  border: 1px solid #bcbcbc;
+  padding: 15px;
+  border-radius: 5px;
+  background: #fcfffb;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.float-left {
+  margin: 4px;
+  margin-right: 4px;
+}
+.app-li-icon {
+  width: 25px;
+  margin-right: 4px;
+}
+
+li {
+  list-style: none;
+  color: #858585;
+}

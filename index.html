@@ -3,18 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="axios.min.js"></script>
     <title>Vanilla</title>
   </head>
   <body>
-    <form class="cityForm">
-      <em><strong>Search City:</strong></em>
-      <input type="text" id="cityInput" />
-    </form>
-    <h2 class="city">Please Enter your city name</h2>
-    <h2 class="cityTempreture">Temp Will update Here...</h2>
-    <h2 class="today">Sunday 9:54</h2>
+    <div class="container">
+      <div class="app-wrapper">
+        <div class="app-logo">
+          <div class="row">
+            <div class="col-12">
+              <h1>Weather App</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="app-wrapper">
+        <div class="app-search">
+          <form class="cityForm">
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-8">
+                <input
+                  type="text"
+                  placeholder="Search City..."
+                  class="form-control"
+                  id="cityInput"
+                />
+              </div>
+              <div class="col-3">
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100"
+                  id="searchBtn"
+                >
+                  Find
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="app-wrapper">
+        <div class="app-info">
+          <div class="row">
+            <div class="col-7">
+              <div class="clearfix weather-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <ul>
+                <li>
+                  <img src="./img/humicon.png" class="app-li-icon" />Humidity:
+                  <span id="humidity"></span>%
+                </li>
+                <li>
+                  <img src="./img/wndicon.png" class="app-li-icon" />Wind:
+                  <span id="wind"></span> km/h
+                </li>
+              </ul>
+            </div>
+          </div>
+          <span class="newsearch">Last updated:</span>
+          <span id="date"></span>
+          <span id="description"></span>
+        </div>
+      </div>
+      <div class="app-wrapper">
+        <small>
+          <a
+            href="https://github.com/wecodeschool/vanilla-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Roya
+        </small>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
