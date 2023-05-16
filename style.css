@@ -36,6 +36,15 @@ h1 {
   margin-right: 4px;
 }
 
+.active-unit {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active-unit:hover {
+  text-decoration: none;
+}
+
 li {
   list-style: none;
   color: #858585;

@@ -10,6 +10,7 @@ function displayWeatherImage(response) {
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  activateCelsius();
 }
 function displayHumidity(response) {
   let humdElement = document.querySelector("#humidity");
@@ -21,10 +22,6 @@ function displayWind(response) {
   windElement.innerHTML = response.data.wind.speed;
 }
 
-function fahrenheitTemp (){
-  let fahrenTemp= celsiusTemperature * 9) / 5 + 32;
-    fahrenTemp.innerHTML = Math.round(fahrenheitTemperature);
-}
 function convertDateTime(t) {
   let unix_timestamp = 1549312452;
   let date = new Date(t * 1000);
@@ -42,6 +39,7 @@ function displayDateTime(response) {
 }
 
 function displayInfo(response) {
+  weatherData = response.data;
   displayWeatherImage(response);
   displayTemperature(response);
   displayHumidity(response);
@@ -67,3 +65,36 @@ function onFormSubmited(event) {
 
 let form = document.querySelector("#cityForm");
 form.addEventListener("submit", onFormSubmited);
+
+function activateFahrenheite() {
+  celsiusLink.classList.remove("active-unit");
+  fahrenheitLink.classList.add("active-unit");
+}
+
+function activateCelsius() {
+  fahrenheitLink.classList.remove("active-unit");
+  celsiusLink.classList.add("active-unit");
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenTemp = (weatherData.main.temp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenTemp);
+  activateFahrenheite();
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(weatherData.main.temp);
+  activateCelsius();
+}
+
+let weatherData = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
